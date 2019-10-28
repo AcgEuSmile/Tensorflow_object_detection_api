@@ -1,0 +1,7 @@
+{
+  "PATH_OUTPUT": "../output_b4_with_momentum/bdd100k_test.json",
+  "PATH_TO_CKPT": "../output_b4_with_momentum/frozen_inference_graph.pb",
+  "DIR_IMAGE": "/workspace/datasets/BDD100k/bdd100k/images/100k/test/",
+  "PATH_TO_LABELS": "../label/label_map.pbtxtx",
+  "NUM_CLASSES": 7
+}

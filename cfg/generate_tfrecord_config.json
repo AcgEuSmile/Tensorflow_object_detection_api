@@ -1,0 +1,5 @@
+{
+  "csv_path": "/workspace/yo/google_od_api/csv/test.csv",
+  "img_path": "/workspace/datasets/BDD100k/VOC_simple/JPEGImages/",
+  "out_path": "/workspace/yo/google_od_api/tfRecord/test2.record"
+}

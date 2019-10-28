@@ -1,0 +1,10 @@
+{
+    "PATH_OUTPUT" = "output/result_annos.json",
+    "PATH_TO_CKPT" = "../../output_b4_with_momentum/frozen_inference_graph.pb",
+    "VIDEO_PATH" = "/workspace/datasets/video/video_FL_FOV120.mp4",
+    "OUTPUT_PATH" = "/workspace/datasets/BDD100k/out.mp4",
+    "PATH_TO_LABELS" = "../../label/label_map.pbtxtx",
+    "CLASS_COLOR" = "default",
+    "THRESHOLD" = 0.5,
+    "NUM_CLASSES" = 7
+}
