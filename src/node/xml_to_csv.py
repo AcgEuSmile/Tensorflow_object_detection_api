@@ -2,8 +2,17 @@ import os
 import sys
 import json
 import glob
+import argparse
 import xml.etree.ElementTree as ET
+# import self package library
+sys.path.append('/workspace/yo/google_od_api/src/lib/')
+from utility import load_config
 
+parser = argparse.ArgumentParser(description='convert .xml to .csv')
+parser.add_argument("--config_path", type = str,
+                    default="cfg/xml2csv_config.json", help="config path")
+args = parser.parse_args()
+cfg = load_config.readCfg(args.config_path)
 
 def getIter(xml_obj):
     obj_info = dict()
@@ -43,7 +52,7 @@ def xmlToCsv(path, target_path):
         for obj in obj_list:
             csv_fd.write(obj.combineString())
 
-def readCfg(path="cfg/xml2csv_config.json"):
+def readCfg(path):
     try:
         with open(path, 'r') as cfg_fd:
             return json.load(cfg_fd)
@@ -51,7 +60,6 @@ def readCfg(path="cfg/xml2csv_config.json"):
         raise("Config file open failed")
 
 def main():
-    cfg = readCfg(sys.argv[1]) if len(sys.argv)>1 else readCfg()
     label_path = cfg["label_path"]
     out_path = cfg["out_path"]
     with open(out_path, "w") as csv_fd:
