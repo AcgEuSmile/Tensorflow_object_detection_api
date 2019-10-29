@@ -1,0 +1,5 @@
+{
+  "DETECTION_PATH": "./output_b4_with_momentum/bdd100k_test.json"
+  "ANNOTATIONS_PATH:" "/workspace/datasets/BDD100k/VOC_test/Annotations/"
+  "OUTPUT_PATH": "./predict_results"
+}
