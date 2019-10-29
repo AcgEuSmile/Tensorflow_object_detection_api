@@ -5,13 +5,18 @@ import time
 import tensorflow as tf
 import numpy as np
 import glob
+import argparse
 from PIL import Image
 from object_detection.utils import label_map_util
 # import self package library
 sys.path.append('/workspace/yo/google_od_api/src/lib/')
 from utility import load_config
         
-cfg = load_config.readCfg("cfg/model_inference.json")
+parser = argparse.ArgumentParser(description='model inference')
+parser.add_argument("--config_path", type = str,
+                    default="cfg/model_inference.json", help="config path")
+args = parser.parse_args()
+cfg = load_config.readCfg(args.config_path)
 
 def get_results(boxes, classes, scores, category_index, im_width, im_height,
     min_score_thresh=.2):

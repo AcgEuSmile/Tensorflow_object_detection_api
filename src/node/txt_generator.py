@@ -2,12 +2,17 @@
 import json
 import os
 import glob
+import argparse
 from xml.etree.ElementTree import ElementTree, Element
 # import self package library
 sys.path.append('/workspace/yo/google_od_api/src/lib/')
 from utility import load_config
 
-cfg = load_config.readCfg("cfg/txt_generator.json")
+parser = argparse.ArgumentParser(description='generate txt')
+parser.add_argument("--config_path", type = str,
+                    default="cfg/txt_generator.json", help="config path")
+args = parser.parse_args()
+cfg = load_config.readCfg(args.config_path)
 
 def del_file(name:str):
     if os.path.exists(name):
