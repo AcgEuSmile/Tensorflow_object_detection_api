@@ -5,22 +5,18 @@ import json
 import time
 import tensorflow as tf
 import numpy as np
+import argparse
 from PIL import Image
 from object_detection.utils import label_map_util
 # import self package library
 sys.path.append('/workspace/yo/google_od_api/src/lib/')
 from utility import load_config
 
-
-PATH_TO_CKPT = '../../output_b4_with_momentum/frozen_inference_graph.pb'
-VIDEO_PATH = '/workspace/datasets/video/video_FL_FOV120.mp4'
-OUTPUT_PATH = '/workspace/datasets/BDD100k/out.mp4'
-PATH_TO_LABELS = '../../label/label_map.pbtxtx'
-CLASS_COLOR = 'default'
-THRESHOLD = 0.5
-NUM_CLASSES = 7
-
-CONFIG = load_config.readCfg("cfg/inference_vids.json")
+parser = argparse.ArgumentParser(description='inference videos')
+parser.add_argument("--config_path", type = str,
+                    default="cfg/inference_vids.json", help="config path")
+args = parser.parse_args()
+CONFIG = load_config.readCfg(args.config_path)
 
 ColorTable = dict({'RED': (0, 0, 255),
                   'ORANGE': (0, 165, 255),

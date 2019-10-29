@@ -6,10 +6,20 @@ import io
 import pandas as pd
 import tensorflow as tf
 import json
+import argparse
 
 from PIL import Image
 from object_detection.utils import dataset_util
 from collections import namedtuple, OrderedDict
+# import self package library
+sys.path.append('/workspace/yo/google_od_api/src/lib/')
+from utility import load_config
+
+parser = argparse.ArgumentParser(description='generator tf_record file')
+parser.add_argument("--config_path", type = str,
+                    default="cfg/generate_tfrecord_config.json", help="config path")
+args = parser.parse_args()
+cfg = load_config.readCfg(args.config_path)
 
 def categoryText2Int(label):
     if label == "bike":
@@ -81,20 +91,15 @@ def createTfRecord(group, img_path):
         }))
     return tf_record
 
-def main(csv_path, img_path, output_path):
-    writer = tf.python_io.TFRecordWriter(output_path)
-    csv_fd = pd.read_csv(csv_path)
+def main():
+    writer = tf.python_io.TFRecordWriter(cfg["out_path"])
+    csv_fd = pd.read_csv(cfg["csv_path"])
     grouped = split(csv_fd, 'filename')
     for group in grouped:
-        tf_record = createTfRecord(group, img_path)
+        tf_record = createTfRecord(group, cfg["img_path"])
         writer.write(tf_record.SerializeToString())
     writer.close()
     print('Successfully created the TFRecords: {}'.format(output_path))
 
-
-cfg = readCfg(sys.argv[1]) if len(sys.argv)>1 else readCfg()
-csv_path = cfg["csv_path"]
-img_path = cfg["img_path"]
-out_path = cfg["out_path"]
-
-main(csv_path, img_path, out_path)
+if __name__ == "__main__":
+    main()
