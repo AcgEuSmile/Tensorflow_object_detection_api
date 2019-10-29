@@ -7,7 +7,6 @@ def readCfg(path):
         with open(path, 'r') as cfg_fd:
             json_fd = json.load(cfg_fd)
             _pathDelSlash(json_fd)
-            print(json_fd)
             return json_fd
     except:
         raise("Config file open failed")

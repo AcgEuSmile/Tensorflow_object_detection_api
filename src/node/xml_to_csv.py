@@ -65,7 +65,7 @@ def main():
     with open(out_path, "w") as csv_fd:
         string='filename,width,height,class,xmin,ymin,xmax,ymax\n'
         csv_fd.write(string)
-    for file_name in glob.glob(label_path+'*.xml'):
+    for file_name in glob.glob(label_path+'/*.xml'):
         xmlToCsv(file_name, out_path)
     print("Success!!")
 
