@@ -2,9 +2,14 @@ import sys
 import argparse
 import glob
 import xml.etree.ElementTree as ET
-# import self package library
-sys.path.append('/workspace/yo/Tensorboard_object_detection_api/src/lib/')
+
+# import self package library start
+dirname = (os.path.dirname(os.path.realpath(__file__))).split("/")
+dirname[-1] = "lib"
+lib_path = "/".join((x for x in dirname))
+sys.path.append(lib_path)
 from utility import load_config
+# import self package library end
 
 parser = argparse.ArgumentParser(description='generator tf_record file')
 parser.add_argument("--config_path", type = str,

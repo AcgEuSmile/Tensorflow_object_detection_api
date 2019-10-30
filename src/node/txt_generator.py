@@ -5,9 +5,14 @@ import glob
 import sys
 import argparse
 from xml.etree.ElementTree import ElementTree, Element
-# import self package library
-sys.path.append('/workspace/yo/google_od_api/src/lib/')
+
+# import self package library start
+dirname = (os.path.dirname(os.path.realpath(__file__))).split("/")
+dirname[-1] = "lib"
+lib_path = "/".join((x for x in dirname))
+sys.path.append(lib_path)
 from utility import load_config
+# import self package library end
 
 parser = argparse.ArgumentParser(description='generate txt')
 parser.add_argument("--config_path", type = str,
