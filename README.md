@@ -1,4 +1,4 @@
-# ＧＯＯＧＬＥ　ＡＰＩ　ＧＵＩＤＥＳ
+#　ＧＯＯＧＬＥ　ＡＰＩ　ＧＵＩＤＥＳ
 
 ## Dataset preparing
 
@@ -12,6 +12,7 @@
         > "label_path": "/workspace/datasets/BDD100k/VOC_simple/Annotations/"
         > "out_path": "/workspace/yo/google_od_api/csv/test.csv"
     * Run "workspace/src/xml_to_csv.py"
+    command: `python workspace/src/xml_to_csv.py`
 2. Generate .record
     * Set config file "workspace/generate_tfrecord_config.json"
       * csv_path: 上個步驟輸出的csv檔案位置
@@ -22,6 +23,7 @@
         >"img_path": "/workspace/datasets/BDD100k/VOC_simple/JPEGImages/",
         >"out_path": "/workspace/yo/google_od_api/tfRecord/test2.record"
     * Run "workspace/src/generate_tfrecord.py"
+    command: `python workspace/src/generate_tfrecord.py`
 3. Build your pbtxt, follow the style as below
 ```
 item{
@@ -99,12 +101,11 @@ python <path_of_train.py>
 --num_clones=2 # 數量依照GPU數量而定
 --ps_tasks=1
 ```
+command: `./scripts/train.bash`
 
 5. Use tensorboard to observe the model
 
-```bash
-tensorboard --logdir=<output_path>
-```
+command: `tensorboard --logdir=<output_path>`
 
 # Use this model !!!
 
