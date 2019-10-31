@@ -1,0 +1,12 @@
+{
+  "DISPLAY": "SAVE",
+  "USAGE": "PREDICTS",
+  "THRESHOLD": 0.7,
+  "IMAGE_PATH": "/workspace/datasets/BDD100k/VOC_test/JPEGImages/",
+  "DETECTIONS_PATH": "/workspace/yo/google_od_api/predict_results/momentum_1280_720/",
+  "SAVE_PATH": "/workspace/yo/google_od_api/predict_results/momentum_1280_720/pictures/",
+  "SAVE_FILENAME_EXTENSION": ".jpg",
+  "BOUNDINGBOX_WIDTH": 3,
+  "LIMIT_NUM": 100,
+  "CLASS_COLOR": "default"
+}
