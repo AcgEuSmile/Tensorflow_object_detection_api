@@ -17,6 +17,7 @@ from utility import load_config
 parser = argparse.ArgumentParser(description='generate txt')
 parser.add_argument("--config_path", type = str,
                     default="cfg/txt_generator.json", help="config path")
+parser.add_argument("--label", "-l", action="store_true", help="generate_gt_txt")
 args = parser.parse_args()
 cfg = load_config.readCfg(args.config_path)
 
@@ -85,7 +86,8 @@ def mkdir(*directories):
 def main():
     mkdir("".join((cfg["OUTPUT_PATH"], '/groundtruths/')),
           "".join((cfg["OUTPUT_PATH"], '/detections/')))
-    label()
+    if args.label:
+        label()
     detection()
 
 if __name__ == "__main__":
