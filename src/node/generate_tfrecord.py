@@ -104,7 +104,7 @@ def main():
         tf_record = createTfRecord(group, cfg["img_path"])
         writer.write(tf_record.SerializeToString())
     writer.close()
-    print('Successfully created the TFRecords: {}'.format(output_path))
+    print('Successfully created the TFRecords: {}'.format(cfg["out_path"]))
 
 if __name__ == "__main__":
     main()
