@@ -5,25 +5,20 @@
 ![flow chart](https://chtseng.files.wordpress.com/2019/02/6340_ynevl46ceg.png?w=760&zoom=2)
 
 1. Label xml->csv using 
-    * Set config file "workspace/cfg/xml2csv_config.json"
+    A.更改設定檔 **cfg/xml2csv_config.json**
+      ```json
       * label_path: 資料集的標註檔案位置(.xml)
       * out_path: 輸出csv檔案的位置與檔名(.csv)
-        > e.g.
-        > "label_path": "/workspace/datasets/BDD100k/VOC_simple/Annotations/"
-        > "out_path": "/workspace/yo/google_od_api/csv/test.csv"
-    * Run "workspace/src/xml_to_csv.py"
-    command: `python workspace/src/xml_to_csv.py`
+      ```
+    B. 執行程式 command: `python src/node/xml_to_csv.py`
 2. Generate .record
-    * Set config file "workspace/generate_tfrecord_config.json"
+    A.更改設定檔 **cfg/generate_tfrecord_config.json**
+      ```json
       * csv_path: 上個步驟輸出的csv檔案位置
       * img_path: 資料集的圖片路徑
       * out_path: 輸出record檔案的位置與檔名(.record)
-        >e.g.
-        >"csv_path": "/workspace/yo/google_od_api/csv/test.csv",
-        >"img_path": "/workspace/datasets/BDD100k/VOC_simple/JPEGImages/",
-        >"out_path": "/workspace/yo/google_od_api/tfRecord/test2.record"
-    * Run "workspace/src/generate_tfrecord.py"
-    command: `python workspace/src/generate_tfrecord.py`
+      ```
+    B. 執行程式 command: `python workspace/src/generate_tfrecord.py`
 3. Build your pbtxt, follow the style as below
 ```txt {.numberLines}
 item{
@@ -103,11 +98,11 @@ pipeline_config_path=<config_path>
 --num_clones=2 # 數量依照GPU數量而定
 --ps_tasks=1
 ```
-command: `./scripts/train.bash`
+執行程式 command: `./scripts/train.bash`
 
 5. Use tensorboard to observe the model
 
-command: `tensorboard --logdir=<output_path>`
+執行程式 command: `tensorboard --logdir=<output_path>`
 
 **恭喜，你已經完成了神經網路的訓練了!!**
 
