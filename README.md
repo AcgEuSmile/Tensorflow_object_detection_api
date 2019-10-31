@@ -109,6 +109,8 @@ command: `./scripts/train.bash`
 
 command: `tensorboard --logdir=<output_path>`
 
+**恭喜，你已經完成了神經網路的訓練了!!**
+
 ## Use this model !!!
 
 1. Convert model.ckpt to inference.pb using "/workspace/scripts/export_model.bash"
@@ -199,6 +201,8 @@ command: `./scripts/export_model.bash`
     * NUM_CLASSES: 分類數(我們使用7)
 
   B. 執行程式 command: `python src/node/inference_vids.py`
+
+**恭喜，你已經完成了所有的部分了!!**
 
 ## 備註
 
