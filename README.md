@@ -45,9 +45,9 @@ export PYTHONPATH=${PTYHONPATH:-${GOOGLE_OBJ_DETECTION_API_PATH}}
 ```
 測試Tensorflow-object-detection api有沒有設定成功
 
-`python research/object_detection/builders/model_builder_test.py`
+`python object_detection/builders/model_builder_test.py`
 
-成功就會顯示success!!
+成功就會顯示OK!!
 
 ## Dataset preparing
 
