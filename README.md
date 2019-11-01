@@ -14,7 +14,7 @@
 |Numpy|1.16.5|
 |Pip|9.0.3|
 |Pillow|5.4.1|
-|Protobuf|3.6.1|
+|Protobuf-compiler|3.0.0|
 
 
 ## Tensorflow-object-detection api setting
@@ -29,7 +29,7 @@ cd <workspace_path>
 # 下載 Tensorflow-object-detection api from its official github
 $ git clone https://github.com/tensorflow/models.git
 # 移動到該資料夾底下
-cd models/
+cd models/research/
 # 編譯protobuf
 protoc object_detection/protos/*.proto --python_out=.
 ```
