@@ -164,7 +164,7 @@ command: `./scripts/export_model.bash`
 
 2. 開始框圖片，輸出json檔案。
 
-  A. 更改設定檔 **cfg/model_inference.json**
+    A. 更改設定檔 **cfg/model_inference.json**
 
     ```json
     * PATH_OUTPUT: 預測的所有輸出結果，存為json檔案。
@@ -174,13 +174,13 @@ command: `./scripts/export_model.bash`
     * NUM_CLASSES: 預測的數量(我們使用7種)。
     ```
 
-  B. 執行程式 command: `python src/node/model_inference.py`
+    B. 執行程式 command: `python src/node/model_inference.py`
 
 3. 將預測出來的.json轉成.txt
   
-  本步驟為了利用[Object-Detection-Metrics](https://github.com/rafaelpadilla/Object-Detection-Metrics)來測試mAP。
+    本步驟為了利用[Object-Detection-Metrics](https://github.com/rafaelpadilla/Object-Detection-Metrics)來測試mAP。
 
-  A. 更改設定檔 **cfg/txt_generator.json**
+    A. 更改設定檔 **cfg/txt_generator.json**
 
     ```json
     * DETECTION_PATH: 上一步生成的json檔案。
@@ -188,7 +188,7 @@ command: `./scripts/export_model.bash`
     * OUTPUT_PATH: 輸出的TXT放置的位置，會生成groundtruths, detections。
     ```
 
-  B. 以下為分歧點，選一個執行就好
+    B. 以下為分歧點，選一個執行就好
   
   a. 假如你是要測試mAP，那你需要同時有groundtruths與detections的txt
     command: 
@@ -203,15 +203,15 @@ command: `./scripts/export_model.bash`
 
 5. 統計生成的xml標籤的各個種類數量
 
-  A. 更改設定檔 **cfg/categories_statistics.json**
+    A. 更改設定檔 **cfg/categories_statistics.json**
     ```json
     * xml_path: 上一步的xml annotation的位置。
     ```
-  B. 執行程式 command: `python src/node/categories_statistics.py`
+    B. 執行程式 command: `python src/node/categories_statistics.py`
   
 6. 輸出有帶有boundingbox的圖片
 
-  A. 更改設定檔 **cfg/Image_with_bb.json**
+    A. 更改設定檔 **cfg/Image_with_bb.json**
 
     ```json
     * DISPLAY: "SAVE"代表儲存、"SHOW"代表直接顯示
@@ -225,13 +225,13 @@ command: `./scripts/export_model.bash`
     * LIMIT_NUM: 限制輸出的圖片書量
     * CLASS_COLOR: 框框顏色，內建使用彩虹7色。
     ```
-  B. 執行程式 command: `python src/node/Image_with_bb.py`
+    B. 執行程式 command: `python src/node/Image_with_bb.py`
 
-  C. 如果找不到"/usr/share/fonts/truetype/lato/Lato-Black.ttf"，請自行修改程式並替換為有的自己喜好的字型。
+    C. 如果找不到"/usr/share/fonts/truetype/lato/Lato-Black.ttf"，請自行修改程式並替換為有的自己喜好的字型。
 
 7. 輸出有帶有boundingbox的影片
 
-  A. 更改設定檔 **cfg/inference_vids.json**
+    A. 更改設定檔 **cfg/inference_vids.json**
 
     ```json
     * PATH_TO_CKPT: 第一步的frozen_inference_graph.pb
@@ -243,7 +243,7 @@ command: `./scripts/export_model.bash`
     * NUM_CLASSES: 分類數(我們使用7)
     ```
 
-  B. 執行程式 command: `python src/node/inference_vids.py`
+    B. 執行程式 command: `python src/node/inference_vids.py`
 
 **恭喜，你已經完成了所有的部分了!!**
 
