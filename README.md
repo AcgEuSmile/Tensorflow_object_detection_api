@@ -37,6 +37,7 @@ export PYTHONPATH=${PTYHONPATH:-${GOOGLE_OBJ_DETECTION_API_PATH}}
 ![flow chart](https://chtseng.files.wordpress.com/2019/02/6340_ynevl46ceg.png?w=760&zoom=2)
 
 1. Label xml->csv using 
+
     A.更改設定檔 **cfg/xml2csv_config.json**
       ```json
       * label_path: 資料集的標註檔案位置(.xml)
@@ -44,6 +45,7 @@ export PYTHONPATH=${PTYHONPATH:-${GOOGLE_OBJ_DETECTION_API_PATH}}
       ```
     B. 執行程式 command: `python src/node/xml_to_csv.py`
 2. Generate .record
+
     A.更改設定檔 **cfg/generate_tfrecord_config.json**
       ```json
       * csv_path: 上個步驟輸出的csv檔案位置
@@ -52,6 +54,7 @@ export PYTHONPATH=${PTYHONPATH:-${GOOGLE_OBJ_DETECTION_API_PATH}}
       ```
     B. 執行程式 command: `python workspace/src/generate_tfrecord.py`
 3. Build your pbtxt, follow the style as below
+
 ```txt {.numberLines}
 item{
   id: 1
@@ -91,6 +94,7 @@ item{
 2. Download the config file [here](https://github.com/tensorflow/models/tree/master/research/object_detection/samples/configs)
 
 3. Modify the config file
+
 ```config
 # 第一階段圖片的大小
   fixed_shape_resizer {
@@ -141,6 +145,7 @@ pipeline_config_path=<config_path>
 ## Use this model !!!
 
 1. Convert model.ckpt to inference.pb using "/workspace/scripts/export_model.bash"
+
 ```bash
 # 建立輸出的資料夾
 mkdir -p output
