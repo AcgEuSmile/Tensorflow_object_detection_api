@@ -1,5 +1,22 @@
 # ＧＯＯＧＬＥ　ＡＰＩ　ＧＵＩＤＥＳ
 
+## Environment
+
+|Type|Ver|
+|----|---|
+|Cuda|10.0.130|
+|Cudnn|7.4.1|
+|Tensorflow|1.12.0|
+|Tensorboard|1.12.2|
+|Python|3.6.5|
+|OpenCV|3.4.5.20|
+|OpenCV-contrib|3.4.5.20|
+|Numpy|1.16.5|
+|Pip|9.0.3|
+|Pillow|5.4.1|
+|Protobuf|3.6.1|
+
+
 ## Tensorflow-object-detection api setting
 
 1. Tensorflow-object-detection official, [Click here!!](https://github.com/tensorflow/models) 
