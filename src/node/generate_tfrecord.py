@@ -49,14 +49,6 @@ def split(df, group):
     gb = df.groupby(group)
     return [data(filename, gb.get_group(x)) for filename, x in zip(gb.groups.keys(), gb.groups)]
 
-def readCfg(path="cfg/generate_tfrecord_config.json"):
-    try:
-        with open(path, "r") as cfg_fd:
-            cfg = json.load(cfg_fd)
-    except:
-        raise("file open failed")
-    return cfg
-
 def createTfRecord(group, img_path):
     with tf.gfile.GFile(os.path.join(img_path, '{}'.format(group.filename)), 'rb') as fid:
         encoded_jpg = fid.read()
