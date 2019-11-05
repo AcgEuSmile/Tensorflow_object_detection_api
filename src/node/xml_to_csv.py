@@ -57,13 +57,6 @@ def xmlToCsv(path, target_path):
         for obj in obj_list:
             csv_fd.write(obj.combineString())
 
-def readCfg(path):
-    try:
-        with open(path, 'r') as cfg_fd:
-            return json.load(cfg_fd)
-    except:
-        raise("Config file open failed")
-
 def main():
     label_path = cfg["label_path"]
     out_path = cfg["out_path"]

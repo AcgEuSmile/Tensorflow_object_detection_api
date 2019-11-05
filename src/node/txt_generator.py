@@ -63,7 +63,7 @@ def detection():
 def label():
     for index, image_path in enumerate(glob.glob(cfg["DIR_IMAGE"]+'/*.jpg')):
         name = image_path.rstrip().split('/')[-1]
-        file_name = "".join((cfg["OUTPUT_PATH"], '/groundtruths/',image_id,'.txt'))
+        file_name = "".join((cfg["OUTPUT_PATH"], '/groundtruths/',name,'.txt'))
         del_file(file_name)
         with open("".join((cfg["ANNOTATIONS_PATH"], name, '.xml')), 'r') as label_fd:
             xml_root = readXml(label_fd)
