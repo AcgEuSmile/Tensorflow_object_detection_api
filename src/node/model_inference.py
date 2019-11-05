@@ -76,8 +76,6 @@ def main():
                 test_annos[image_id] = {'objects': get_results(
                     np.squeeze(boxes), np.squeeze(classes).astype(np.int32), np.squeeze(scores),
                     category_index, im_width, im_height)}
-                if index > 10:
-                    break
 
     test_annos = {'imgs': test_annos}
     fd = open(cfg["PATH_OUTPUT"], 'w')
